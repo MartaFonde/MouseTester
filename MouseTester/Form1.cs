@@ -1,4 +1,4 @@
-﻿#define KEYS
+﻿#define KEY
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,12 +40,10 @@ namespace MouseTester
             if (e.Button == MouseButtons.Left)
             {
                 button1.BackColor = Color.Green;
-            }
-            if(e.Button == MouseButtons.Right)
+            }else if(e.Button == MouseButtons.Right)
             {
                 button2.BackColor = Color.Aqua;
-            }
-            if(e.Button == MouseButtons.Middle)
+            }else if(e.Button == MouseButtons.Middle)
             {
                 button1.BackColor = Color.Green;
                 button2.BackColor = Color.Aqua;
@@ -54,12 +52,23 @@ namespace MouseTester
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            button1.BackColor = button1.BackColor = default;
-            button2.BackColor = button2.BackColor = default;
+            if(e.Button == MouseButtons.Left )
+            {
+                button1.BackColor = button1.BackColor = default;
+            } 
+            if(e.Button == MouseButtons.Right)
+            {
+                button2.BackColor = button2.BackColor = default;
+            }
+            if(e.Button == MouseButtons.Middle)
+            {
+                button1.BackColor = button1.BackColor = default;
+                button2.BackColor = button2.BackColor = default;
+            }
 
         }
 
-#if KEYS == TRUE
+#if KEYS 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Escape)
