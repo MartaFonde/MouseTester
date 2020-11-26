@@ -1,4 +1,4 @@
-﻿#define KEY
+﻿#define KEYS
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +16,12 @@ namespace MouseTester
         public Form1()
         {
             InitializeComponent();
+#if KEYS
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+#else
+            
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+#endif
         }
 
 
