@@ -1,6 +1,7 @@
-﻿#define KEYS
+﻿#define KEY
 namespace MouseTester
 {
+    using System.Drawing;
     partial class Form1
     {
         /// <summary>
@@ -40,9 +41,10 @@ namespace MouseTester
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 66);
             this.button1.TabIndex = 0;
-            this.button1.Tag = "Color.Green";
+            this.button1.Tag = Color.Green;
             this.button1.Text = "&LEFT";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_Click);
             this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // button2
@@ -51,9 +53,10 @@ namespace MouseTester
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 66);
             this.button2.TabIndex = 1;
-            this.button2.Tag = "Color.Aqua";
+            this.button2.Tag = Color.Aqua;
             this.button2.Text = "&RIGHT";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_Click);
             this.button2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // Form1
@@ -68,7 +71,6 @@ namespace MouseTester
             this.Name = "Form1";
             this.Text = "Mouse Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
@@ -77,7 +79,7 @@ namespace MouseTester
 
         }
 
-#endregion
+        #endregion
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
